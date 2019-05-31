@@ -9,7 +9,8 @@ export const theme = {
     },
   },
   colors: {
-    white: "#fff",
-    black: "#000",
+    main: "#32FF08",
+    white: "#FFFFFF",
+    black: "#000000",
   },
 };

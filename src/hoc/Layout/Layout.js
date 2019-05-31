@@ -4,6 +4,7 @@ import { ThemeProvider } from "styled-components";
 
 import GlobalStyle from "../../assets/styles/GlobalStyle/GlobalStyle";
 import { theme } from "../../assets/styles/theme/theme";
+import Header from "../../components/Header/Header";
 
 class Layout extends Component {
   render() {
@@ -12,7 +13,7 @@ class Layout extends Component {
       <ThemeProvider theme={theme}>
         <>
           <GlobalStyle />
-          <p>Navigation Bar</p>
+          <Header>Navigation Bar</Header>
           <main>{children}</main>
         </>
       </ThemeProvider>
