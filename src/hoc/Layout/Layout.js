@@ -13,7 +13,7 @@ class Layout extends Component {
       <ThemeProvider theme={theme}>
         <>
           <GlobalStyle />
-          <Header>Navigation Bar</Header>
+          <Header />
           <main>{children}</main>
         </>
       </ThemeProvider>
