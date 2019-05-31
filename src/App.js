@@ -1,7 +1,8 @@
 import React from "react";
+import Layout from "./hoc/Layout/Layout";
 
 function App() {
-  return <div className="App">Hello World</div>;
+  return <Layout>Hello World</Layout>;
 }
 
 export default App;
