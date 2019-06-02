@@ -12,6 +12,9 @@ const StyledHeader = styled.header`
 `;
 
 class Header extends Component {
+  state = {
+    mobileMenuOn: false,
+  };
   render() {
     return (
       <StyledHeader>
