@@ -5,7 +5,10 @@ import MobileMenu from "./MobileMenu/MobileMenu";
 
 const StyledHeader = styled.header`
   background-color: ${({ theme }) => theme.colors.main};
-  height: 70px;
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 class Header extends Component {
