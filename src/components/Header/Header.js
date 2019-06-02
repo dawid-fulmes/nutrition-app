@@ -15,11 +15,19 @@ class Header extends Component {
   state = {
     mobileMenuOn: false,
   };
+  toggleMobileMenuHandler = () => {
+    this.setState(prevState => ({ mobileMenuOn: !prevState.mobileMenuOn }));
+  };
   render() {
+    const { mobileMenuOn } = this.state;
+    const { toggleMobileMenuHandler } = this;
     return (
       <StyledHeader>
-        <Hamburger />
-        <MobileMenu />
+        <Hamburger
+          mobileMenuOn={mobileMenuOn}
+          toggleMobileMenu={toggleMobileMenuHandler}
+        />
+        <MobileMenu mobileMenuOn={mobileMenuOn} />
       </StyledHeader>
     );
   }
