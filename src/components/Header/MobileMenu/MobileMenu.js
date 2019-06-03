@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import NavItems from "../NavItems/NavItems";
 
 const StyledMobileMenu = styled.div`
   position: fixed;
@@ -16,7 +17,11 @@ const StyledMobileMenu = styled.div`
 `;
 
 const MobileMenu = ({ visible }) => {
-  return <StyledMobileMenu visible={visible}>NavigationItems</StyledMobileMenu>;
+  return (
+    <StyledMobileMenu visible={visible}>
+      <NavItems />
+    </StyledMobileMenu>
+  );
 };
 
 MobileMenu.propTypes = {

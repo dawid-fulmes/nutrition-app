@@ -2,6 +2,7 @@ import styled from "styled-components";
 import React, { Component } from "react";
 import Hamburger from "./Hamburger/Hamburger";
 import MobileMenu from "./MobileMenu/MobileMenu";
+import NavItems from "./NavItems/NavItems";
 
 const StyledHeader = styled.header`
   background-color: ${({ theme }) => theme.colors.main};
@@ -30,6 +31,7 @@ class Header extends Component {
             mobileMenuOn={mobileMenuOn}
             toggleMobileMenu={toggleMobileMenuHandler}
           />
+          <NavItems />
         </StyledHeader>
         <MobileMenu visible={mobileMenuOn} />
       </>
