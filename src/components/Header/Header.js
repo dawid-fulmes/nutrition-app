@@ -9,6 +9,8 @@ const StyledHeader = styled.header`
   padding: 10px;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+  z-index: 999;
 `;
 
 class Header extends Component {
@@ -22,13 +24,15 @@ class Header extends Component {
     const { mobileMenuOn } = this.state;
     const { toggleMobileMenuHandler } = this;
     return (
-      <StyledHeader>
-        <Hamburger
-          mobileMenuOn={mobileMenuOn}
-          toggleMobileMenu={toggleMobileMenuHandler}
-        />
-        <MobileMenu mobileMenuOn={mobileMenuOn} />
-      </StyledHeader>
+      <>
+        <StyledHeader>
+          <Hamburger
+            mobileMenuOn={mobileMenuOn}
+            toggleMobileMenu={toggleMobileMenuHandler}
+          />
+        </StyledHeader>
+        <MobileMenu visible={mobileMenuOn} />
+      </>
     );
   }
 }

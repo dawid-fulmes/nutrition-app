@@ -11,6 +11,7 @@ const StyledHamburger = styled.button`
   background-color: transparent;
   border: none;
   padding: ${2 * barsDimensions.height + 10 + "px"} 10px;
+  z-index: 999;
 `;
 
 const HamburgerBars = styled.div`
