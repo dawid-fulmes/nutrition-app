@@ -31,7 +31,7 @@ class Header extends Component {
             mobileMenuOn={mobileMenuOn}
             toggleMobileMenu={toggleMobileMenuHandler}
           />
-          <NavItems />
+          <NavItems isDesktop />
         </StyledHeader>
         <MobileMenu visible={mobileMenuOn} />
       </>

@@ -14,6 +14,10 @@ const StyledMobileMenu = styled.div`
   background-color: ${({ theme }) => theme.colors.main};
   transition: transform 0.8s;
   transform: translateX(${({ visible }) => (visible ? 0 : "-100%")});
+
+  ${({ theme }) => theme.media.desktop} {
+    display: none;
+  }
 `;
 
 const MobileMenu = ({ visible }) => {

@@ -13,4 +13,8 @@ export const theme = {
     white: "#FFFFFF",
     black: "#000000",
   },
+  media: {
+    tablet: `@media (min-width: 768px)`,
+    desktop: `@media (min-width: 1024px)`,
+  },
 };

@@ -12,6 +12,9 @@ const StyledHamburger = styled.button`
   border: none;
   padding: ${2 * barsDimensions.height + 10 + "px"} 10px;
   z-index: 999;
+  ${({ theme }) => theme.media.desktop} {
+    display: none;
+  }
 `;
 
 const HamburgerBars = styled.div`
