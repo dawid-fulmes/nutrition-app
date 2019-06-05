@@ -21,9 +21,12 @@ class Header extends Component {
   toggleMobileMenuHandler = () => {
     this.setState(prevState => ({ mobileMenuOn: !prevState.mobileMenuOn }));
   };
+  closeMobileMenuHandler = () => {
+    this.setState({ mobileMenuOn: false });
+  };
   render() {
     const { mobileMenuOn } = this.state;
-    const { toggleMobileMenuHandler } = this;
+    const { toggleMobileMenuHandler, closeMobileMenuHandler } = this;
     return (
       <>
         <StyledHeader>
@@ -33,7 +36,7 @@ class Header extends Component {
           />
           <NavItems isDesktop />
         </StyledHeader>
-        <MobileMenu visible={mobileMenuOn} />
+        <MobileMenu visible={mobileMenuOn} closeMenu={closeMobileMenuHandler} />
       </>
     );
   }

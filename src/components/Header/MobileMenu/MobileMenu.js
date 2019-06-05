@@ -20,16 +20,17 @@ const StyledMobileMenu = styled.div`
   }
 `;
 
-const MobileMenu = ({ visible }) => {
+const MobileMenu = ({ visible, closeMenu }) => {
   return (
     <StyledMobileMenu visible={visible}>
-      <NavItems />
+      <NavItems closeMenu={closeMenu} />
     </StyledMobileMenu>
   );
 };
 
 MobileMenu.propTypes = {
   visible: PropTypes.bool.isRequired,
+  closeMenu: PropTypes.func,
 };
 
 export default MobileMenu;

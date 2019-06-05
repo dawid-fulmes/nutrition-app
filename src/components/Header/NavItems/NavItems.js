@@ -11,26 +11,41 @@ const linksConfig = [
 
 const StyledNav = styled.nav`
   display: ${({ isDesktop }) => (isDesktop ? "none" : "block")};
+  flex-grow: 1;
 
   ${({ theme }) => theme.media.desktop} {
     display: ${({ isDesktop }) => (isDesktop ? "block" : "none")};
   }
 `;
 
-const NavItems = ({ isDesktop }) => {
+const StyledUl = styled.ul`
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  align-items: center;
+  font-size: 2rem;
+
+  ${({ theme }) => theme.media.desktop} {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+`;
+
+const NavItems = ({ isDesktop, closeMenu }) => {
   return (
     <StyledNav isDesktop={isDesktop}>
-      <ul>
+      <StyledUl>
         {linksConfig.map(config => (
-          <NavItem {...config} key={config.label} />
+          <NavItem {...config} key={config.label} closeMenu={closeMenu} />
         ))}
-      </ul>
+      </StyledUl>
     </StyledNav>
   );
 };
 
 NavItems.propTypes = {
   isDesktop: PropTypes.bool,
+  closeMenu: PropTypes.func,
 };
 
 export default NavItems;
