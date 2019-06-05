@@ -4,7 +4,6 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 const linksConfig = [
-  { label: "Main", path: "/" },
   { label: "About", path: "/about" },
   { label: "Search", path: "/search" },
 ];

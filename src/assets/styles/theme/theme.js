@@ -9,9 +9,10 @@ export const theme = {
     },
   },
   colors: {
-    main: "#32FF08",
+    main: "#35BF19",
     white: "#FFFFFF",
     black: "#000000",
+    background: "#A9FF6A",
   },
   media: {
     tablet: `@media (min-width: 768px)`,
