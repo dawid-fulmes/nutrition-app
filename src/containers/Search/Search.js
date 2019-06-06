@@ -20,7 +20,7 @@ class Search extends Component {
     this.setState({ searchInputvalue: e.target.value });
   };
   render() {
-    const { onSearch, searchResults } = this.props;
+    const { onSearch, searchResults, loadingResults } = this.props;
     const { searchInputvalue } = this.state;
     const { changeSearchInputHandler } = this;
     return (
@@ -30,7 +30,7 @@ class Search extends Component {
           searchValue={searchInputvalue}
           searchChange={changeSearchInputHandler}
         />
-        <SearchResults results={searchResults} />
+        <SearchResults results={searchResults} loading={loadingResults} />
       </StyledWrapper>
     );
   }
@@ -39,10 +39,12 @@ class Search extends Component {
 Search.propTypes = {
   onSearch: PropTypes.func.isRequired,
   searchResults: PropTypes.array.isRequired,
+  loadingResults: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
   searchResults: state.results,
+  loadingResults: state.loading,
 });
 
 const mapDispatchToProps = dispatch => ({

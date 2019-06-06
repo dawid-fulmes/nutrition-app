@@ -11,13 +11,15 @@ const StyledMain = styled.main`
   flex-direction: column;
   align-items: center;
   flex-grow: 1;
-  background-color: ${({ theme }) => theme.colors.background};
+  max-width: 1024px;
+  margin: 0 auto;
 `;
 
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: ${({ theme }) => theme.colors.background};
 `;
 
 class Layout extends Component {
