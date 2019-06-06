@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -39,25 +40,21 @@ const StyledWrapper = styled.div`
   }
 `;
 
-class SearchField extends Component {
-  state = {
-    value: "",
-  };
-  changeHandler = e => {
-    this.setState({ value: e.target.value });
-  };
-  render() {
-    const { value } = this.state;
-    const { changeHandler } = this;
-    return (
-      <StyledWrapper>
-        <input value={value} type="text" onChange={changeHandler} />
-        <button>
-          <i className="fas fa-search" />
-        </button>
-      </StyledWrapper>
-    );
-  }
-}
+const SearchField = ({ searchValue, searchChange, searchClick }) => {
+  return (
+    <StyledWrapper>
+      <input value={searchValue} type="text" onChange={searchChange} />
+      <button onClick={searchClick}>
+        <i className="fas fa-search" />
+      </button>
+    </StyledWrapper>
+  );
+};
+
+SearchField.propTypes = {
+  searchValue: PropTypes.string.isRequired,
+  searchChange: PropTypes.func.isRequired,
+  searchClick: PropTypes.func.isRequired,
+};
 
 export default SearchField;
