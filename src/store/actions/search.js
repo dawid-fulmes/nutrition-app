@@ -29,12 +29,16 @@ export const search = query => {
         },
       })
       .then(({ data }) => {
-        const results = data.list.item.map(({ ndbno, name, group }) => ({
-          id: ndbno,
-          name,
-          group,
-        }));
-        dispatch(searchSuccess(results));
+        if (data.errors) {
+          dispatch(searchSuccess([]));
+        } else {
+          const results = data.list.item.map(({ ndbno, name, group }) => ({
+            id: ndbno,
+            name,
+            group,
+          }));
+          dispatch(searchSuccess(results));
+        }
       })
       .catch(err => dispatch(searchSuccess(err)));
   };
