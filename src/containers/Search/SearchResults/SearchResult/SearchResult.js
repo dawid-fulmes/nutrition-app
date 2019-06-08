@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-import Spinner from "../../../../components/Spinner/Spinner";
+import ResultDetails from "./ResultDetails/ResultDetails";
 
 const StyledWrapper = styled.div`
   font-size: 1.5rem;
@@ -49,28 +49,29 @@ const StyledWrapper = styled.div`
   }
 `;
 
-const DetailedDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  position: relative;
-  flex-grow: 1;
-`;
-
-const SearchResult = ({ name, group, loading }) => {
+const SearchResult = ({ name, group, loading, getDetails, details }) => {
   const [detailed, toggleDetailed] = useState(false);
 
-  const details = loading ? <Spinner color="black" /> : <div>{group}</div>;
+  const click = () => {
+    if (
+      Object.entries(details).length === 0 &&
+      details.constructor === Object
+    ) {
+      getDetails();
+    }
+    toggleDetailed(!detailed);
+  };
 
   return (
     <>
       <StyledWrapper detailed={detailed}>
         <div>
           <p>{name}</p>
-          {detailed && <DetailedDiv>{details}</DetailedDiv>}
+          {detailed && (
+            <ResultDetails loading={loading} group={group} details={details} />
+          )}
         </div>
-        <button onClick={() => toggleDetailed(!detailed)}>
+        <button onClick={click}>
           <i className="fas fa-caret-down" />
         </button>
       </StyledWrapper>
@@ -82,6 +83,8 @@ SearchResult.propTypes = {
   name: PropTypes.string,
   group: PropTypes.string,
   loading: PropTypes.bool,
+  getDetails: PropTypes.func,
+  details: PropTypes.object,
 };
 
 export default SearchResult;

@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import SearchField from "./SearchField/SearchField";
-import { search } from "../../store/actions/search";
+import { search, getDetails } from "../../store/actions/search";
 import SearchResults from "./SearchResults/SearchResults";
 
 const StyledWrapper = styled.div`
@@ -20,7 +20,12 @@ class Search extends Component {
     this.setState({ searchInputvalue: e.target.value });
   };
   render() {
-    const { onSearch, searchResults, loadingResults } = this.props;
+    const {
+      onSearch,
+      onGetDetails,
+      searchResults,
+      loadingResults,
+    } = this.props;
     const { searchInputvalue } = this.state;
     const { changeSearchInputHandler } = this;
     return (
@@ -30,7 +35,11 @@ class Search extends Component {
           searchValue={searchInputvalue}
           searchChange={changeSearchInputHandler}
         />
-        <SearchResults results={searchResults} loading={loadingResults} />
+        <SearchResults
+          results={searchResults}
+          loading={loadingResults}
+          getDetails={onGetDetails}
+        />
       </StyledWrapper>
     );
   }
@@ -40,6 +49,7 @@ Search.propTypes = {
   onSearch: PropTypes.func.isRequired,
   searchResults: PropTypes.array.isRequired,
   loadingResults: PropTypes.bool.isRequired,
+  onGetDetails: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -49,6 +59,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onSearch: query => dispatch(search(query)),
+  onGetDetails: id => dispatch(getDetails(id)),
 });
 
 export default connect(

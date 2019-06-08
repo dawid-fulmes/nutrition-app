@@ -8,14 +8,21 @@ const StyledWrapper = styled.div`
   margin-top: 10px;
 `;
 
-const SearchResults = ({ results, loading }) => {
+const SearchResults = ({ results, loading, getDetails }) => {
   return (
     <StyledWrapper>
       {loading ? (
         <Spinner color="black" />
       ) : (
-        results.map(({ name, group, id, loading }) => (
-          <SearchResult key={id} name={name} group={group} loading={loading} />
+        results.map(({ name, group, id, loading, details }) => (
+          <SearchResult
+            key={id}
+            name={name}
+            group={group}
+            loading={loading}
+            getDetails={() => getDetails(id)}
+            details={details}
+          />
         ))
       )}
     </StyledWrapper>
@@ -25,6 +32,7 @@ const SearchResults = ({ results, loading }) => {
 SearchResults.propTypes = {
   results: PropTypes.array.isRequired,
   loading: PropTypes.bool.isRequired,
+  getDetails: PropTypes.func.isRequired,
 };
 
 export default SearchResults;
