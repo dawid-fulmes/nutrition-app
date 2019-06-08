@@ -35,6 +35,7 @@ export const search = query => {
           const results = data.list.item.map(({ ndbno, name, group }) => ({
             id: ndbno,
             name,
+            loading: false,
             group,
           }));
           dispatch(searchSuccess(results));

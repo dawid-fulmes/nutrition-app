@@ -14,8 +14,8 @@ const SearchResults = ({ results, loading }) => {
       {loading ? (
         <Spinner color="black" />
       ) : (
-        results.map(({ name, group, id }) => (
-          <SearchResult key={id} name={name} group={group} />
+        results.map(({ name, group, id, loading }) => (
+          <SearchResult key={id} name={name} group={group} loading={loading} />
         ))
       )}
     </StyledWrapper>

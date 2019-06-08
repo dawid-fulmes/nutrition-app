@@ -4,8 +4,6 @@ import {
   SEARCH_FAIL,
 } from "../actions/actionTypes";
 
-import {} from "../actions/actionTypes";
-
 const initialState = {
   results: [],
   loading: false,
