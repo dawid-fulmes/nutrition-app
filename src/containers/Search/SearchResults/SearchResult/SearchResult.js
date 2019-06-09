@@ -3,6 +3,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 import ResultDetails from "./ResultDetails/ResultDetails";
+import { isEmpty } from "../../../../shared/utils";
 
 const StyledWrapper = styled.div`
   font-size: 1.5rem;
@@ -53,10 +54,7 @@ const SearchResult = ({ name, group, loading, getDetails, details }) => {
   const [detailed, toggleDetailed] = useState(false);
 
   const click = () => {
-    if (
-      Object.entries(details).length === 0 &&
-      details.constructor === Object
-    ) {
+    if (isEmpty(details)) {
       getDetails();
     }
     toggleDetailed(!detailed);

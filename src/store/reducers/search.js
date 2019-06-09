@@ -11,6 +11,7 @@ const initialState = {
   results: [],
   loading: false,
   error: null,
+  lastQuery: "",
 };
 
 const reducer = (state = initialState, action) => {
@@ -25,12 +26,14 @@ const reducer = (state = initialState, action) => {
         ...state,
         loading: false,
         results: action.results,
+        lastQuery: action.query,
       };
     case SEARCH_FAIL:
       return {
         ...state,
         loading: false,
         error: action.error,
+        lastQuery: action.query,
       };
     case GET_DETAILS_START:
       return {

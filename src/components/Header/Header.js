@@ -35,7 +35,7 @@ class Header extends Component {
             mobileMenuOn={mobileMenuOn}
             toggleMobileMenu={toggleMobileMenuHandler}
           />
-          <Logo />
+          <Logo closeMenu={closeMobileMenuHandler} />
           <NavItems isDesktop />
         </StyledHeader>
         <MobileMenu visible={mobileMenuOn} closeMenu={closeMobileMenuHandler} />

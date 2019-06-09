@@ -40,7 +40,11 @@ const StyledWrapper = styled.div`
   }
 `;
 
-const SearchField = ({ searchValue, searchChange, searchClick }) => {
+const SearchField = ({ searchValue, searchChange, search }) => {
+  const searchClick = () => {
+    if (searchValue.trim().length < 1) return;
+    search();
+  };
   return (
     <StyledWrapper>
       <input
@@ -59,7 +63,7 @@ const SearchField = ({ searchValue, searchChange, searchClick }) => {
 SearchField.propTypes = {
   searchValue: PropTypes.string.isRequired,
   searchChange: PropTypes.func.isRequired,
-  searchClick: PropTypes.func.isRequired,
+  search: PropTypes.func.isRequired,
 };
 
 export default SearchField;

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -18,8 +19,16 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const Logo = () => {
-  return <StyledLink to="/">Nutrition App</StyledLink>;
+const Logo = ({ closeMenu }) => {
+  return (
+    <StyledLink to="/" onClick={closeMenu}>
+      Nutrition App
+    </StyledLink>
+  );
+};
+
+Logo.propTypes = {
+  closeMenu: PropTypes.func.isRequired,
 };
 
 export default Logo;

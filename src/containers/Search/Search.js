@@ -25,17 +25,19 @@ class Search extends Component {
       onGetDetails,
       searchResults,
       loadingResults,
+      lastQuery,
     } = this.props;
     const { searchInputvalue } = this.state;
     const { changeSearchInputHandler } = this;
     return (
       <StyledWrapper>
         <SearchField
-          searchClick={() => onSearch(searchInputvalue)}
+          search={() => onSearch(searchInputvalue)}
           searchValue={searchInputvalue}
           searchChange={changeSearchInputHandler}
         />
         <SearchResults
+          lastQuery={lastQuery}
           results={searchResults}
           loading={loadingResults}
           getDetails={onGetDetails}
@@ -50,11 +52,13 @@ Search.propTypes = {
   searchResults: PropTypes.array.isRequired,
   loadingResults: PropTypes.bool.isRequired,
   onGetDetails: PropTypes.func.isRequired,
+  lastQuery: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({
   searchResults: state.results,
   loadingResults: state.loading,
+  lastQuery: state.lastQuery,
 });
 
 const mapDispatchToProps = dispatch => ({

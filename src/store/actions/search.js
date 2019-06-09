@@ -12,13 +12,15 @@ export const searchStart = () => ({
   type: SEARCH_START,
 });
 
-export const searchSuccess = results => ({
+export const searchSuccess = (query, results) => ({
   type: SEARCH_SUCCESS,
+  query,
   results,
 });
 
-export const searchFail = error => ({
+export const searchFail = (query, error) => ({
   type: SEARCH_FAIL,
+  query,
   error,
 });
 
@@ -37,7 +39,7 @@ export const search = query => {
       })
       .then(({ data }) => {
         if (data.errors) {
-          dispatch(searchSuccess([]));
+          dispatch(searchSuccess(query, []));
         } else {
           const results = data.list.item.map(({ ndbno, name, group }) => ({
             id: ndbno,
@@ -47,10 +49,10 @@ export const search = query => {
             details: {},
             error: null,
           }));
-          dispatch(searchSuccess(results));
+          dispatch(searchSuccess(query, results));
         }
       })
-      .catch(err => dispatch(searchSuccess(err)));
+      .catch(err => dispatch(searchSuccess(query, err)));
   };
 };
 
