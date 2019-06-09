@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.js": "/nutrition-app/static/js/main.bcea492c.chunk.js",
+    "main.js.map": "/nutrition-app/static/js/main.bcea492c.chunk.js.map",
+    "runtime~main.js": "/nutrition-app/static/js/runtime~main.aff253eb.js",
+    "runtime~main.js.map": "/nutrition-app/static/js/runtime~main.aff253eb.js.map",
+    "static/js/2.7227a2d8.chunk.js": "/nutrition-app/static/js/2.7227a2d8.chunk.js",
+    "static/js/2.7227a2d8.chunk.js.map": "/nutrition-app/static/js/2.7227a2d8.chunk.js.map",
+    "index.html": "/nutrition-app/index.html",
+    "precache-manifest.88ac45303987281a355543b1b7d87f1c.js": "/nutrition-app/precache-manifest.88ac45303987281a355543b1b7d87f1c.js",
+    "service-worker.js": "/nutrition-app/service-worker.js"
+  }
+}
