@@ -43,7 +43,12 @@ const StyledWrapper = styled.div`
 const SearchField = ({ searchValue, searchChange, searchClick }) => {
   return (
     <StyledWrapper>
-      <input value={searchValue} type="text" onChange={searchChange} />
+      <input
+        value={searchValue}
+        type="text"
+        onChange={searchChange}
+        placeholder="food..."
+      />
       <button onClick={searchClick}>
         <i className="fas fa-search" />
       </button>
