@@ -2,41 +2,20 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
+import Button from "../../../components/Button/Button";
+import Input from "../../../components/Input/Input";
+
 const StyledWrapper = styled.div`
   display: flex;
   width: 100%;
 
-  & input,
-  & button {
-    font-size: 2rem;
-    line-height: 1.5;
-    padding: 0 10px;
-    border: 3px solid ${({ theme }) => theme.colors.main};
-  }
-
-  & input {
-    width: 50%;
-    flex-grow: 1;
-    flex-shrink: 1;
-    border-right: none;
-    border-radius: 20px 0 0 20px;
-  }
-
-  & button {
+  & > button {
     border-radius: 0 20px 20px 0;
-    background: linear-gradient(
-      135deg,
-      ${({ theme }) => theme.colors.background},
-      #7ce64c
-    );
-    &:hover,
-    &:active {
-      background: linear-gradient(
-        135deg,
-        ${({ theme }) => theme.colors.background},
-        #35bf19
-      );
-    }
+  }
+
+  & > input {
+    border-radius: 20px 0 0 20px;
+    border-right: none;
   }
 `;
 
@@ -47,15 +26,15 @@ const SearchField = ({ searchValue, searchChange, search }) => {
   };
   return (
     <StyledWrapper>
-      <input
+      <Input
         value={searchValue}
         type="text"
-        onChange={searchChange}
+        change={searchChange}
         placeholder="food..."
       />
-      <button onClick={searchClick}>
+      <Button click={searchClick}>
         <i className="fas fa-search" />
-      </button>
+      </Button>
     </StyledWrapper>
   );
 };

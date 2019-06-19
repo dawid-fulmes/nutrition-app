@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 
 import ResultDetails from "./ResultDetails/ResultDetails";
 import { isEmpty } from "../../../../shared/utils";
+import Button from "../../../../components/Button/Button";
 
 const StyledWrapper = styled.div`
   font-size: 1.5rem;
@@ -23,26 +24,9 @@ const StyledWrapper = styled.div`
   }
 
   & button {
-    display: block;
     font-size: 1.5rem;
-    line-height: 40px;
     flex-shrink: 0;
-    width: 40px;
-    border: 3px solid ${({ theme }) => theme.colors.main};
-    border-radius: 10px;
-    background: linear-gradient(
-      135deg,
-      ${({ theme }) => theme.colors.background},
-      #7ce64c
-    );
-    &:hover,
-    &:active {
-      background: linear-gradient(
-        135deg,
-        ${({ theme }) => theme.colors.background},
-        #35bf19
-      );
-    }
+    border-radius: 50%;
     & i {
       transition: transform 0.2s;
       transform: rotate(${({ detailed }) => (detailed ? "180deg" : "0deg")});
@@ -69,9 +53,9 @@ const SearchResult = ({ name, group, loading, getDetails, details }) => {
             <ResultDetails loading={loading} group={group} details={details} />
           )}
         </div>
-        <button onClick={click}>
+        <Button click={click}>
           <i className="fas fa-caret-down" />
-        </button>
+        </Button>
       </StyledWrapper>
     </>
   );
