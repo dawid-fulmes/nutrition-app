@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import SearchField from "./SearchField/SearchField";
-import { search, getDetails } from "../../store/actions/search";
+import { search, getDetails } from "../../../store/actions/search";
 import SearchResults from "./SearchResults/SearchResults";
 
 const StyledWrapper = styled.div`

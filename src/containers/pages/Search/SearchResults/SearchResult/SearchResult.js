@@ -3,8 +3,8 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 import ResultDetails from "./ResultDetails/ResultDetails";
-import { isEmpty } from "../../../../shared/utils";
-import Button from "../../../../components/Button/Button";
+import { isEmpty } from "../../../../../shared/utils";
+import Button from "../../../../../components/Button/Button";
 
 const StyledWrapper = styled.div`
   font-size: 1.5rem;

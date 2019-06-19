@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-import Button from "../../../components/Button/Button";
-import Input from "../../../components/Input/Input";
+import Button from "../../../../components/Button/Button";
+import Input from "../../../../components/Input/Input";
 
 const StyledWrapper = styled.div`
   display: flex;

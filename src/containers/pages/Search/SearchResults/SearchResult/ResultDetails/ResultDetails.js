@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-import Spinner from "../../../../../components/Spinner/Spinner";
+import Spinner from "../../../../../../components/Spinner/Spinner";
 
 const StyledWrapper = styled.div`
   display: flex;

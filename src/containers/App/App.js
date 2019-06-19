@@ -2,10 +2,11 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 
 import Layout from "../../hoc/Layout/Layout";
-import Home from "../../components/Home/Home";
-import Search from "../Search/Search";
-import Error404 from "../Error404/Error404";
-import About from "../About/About";
+import Home from "../pages/Home/Home";
+import Search from "../pages/Search/Search";
+import Error404 from "../pages/Error404/Error404";
+import About from "../pages/About/About";
+import Auth from "../pages/Auth/Auth";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/search" component={Search} />
         <Route path="/about" component={About} />
+        <Route path="/auth" component={Auth} />
         <Route component={Error404} />
       </Switch>
     </Layout>

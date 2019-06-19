@@ -3,7 +3,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 import SearchResult from "./SearchResult/SearchResult";
-import Spinner from "../../../components/Spinner/Spinner";
+import Spinner from "../../../../components/Spinner/Spinner";
 
 const StyledWrapper = styled.div`
   margin-top: 10px;

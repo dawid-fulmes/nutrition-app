@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 const linksConfig = [
   { label: "Search", path: "/search" },
   { label: "About", path: "/about" },
+  { label: "Auth", path: "/auth" },
 ];
 
 const StyledNav = styled.nav`
