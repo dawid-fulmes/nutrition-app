@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 import Layout from "../../hoc/Layout/Layout";
 import Home from "../pages/Home/Home";
@@ -8,8 +10,12 @@ import Error404 from "../pages/Error404/Error404";
 import About from "../pages/About/About";
 import Auth from "../pages/Auth/Auth";
 import Logout from "../pages/Logout/Logout";
+import { authCheckLocalStorage } from "../../store/actions/auth";
 
-const App = () => {
+const App = ({ onTryToAuth }) => {
+  useEffect(() => {
+    onTryToAuth();
+  });
   return (
     <Layout>
       <Switch>
@@ -24,4 +30,15 @@ const App = () => {
   );
 };
 
-export default App;
+App.propTypes = {
+  onTryToAuth: PropTypes.func.isRequired,
+};
+
+const mapDispatchToProps = dispatch => ({
+  onTryToAuth: () => dispatch(authCheckLocalStorage()),
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(App);
