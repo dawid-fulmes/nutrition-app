@@ -3,12 +3,6 @@ import NavItem from "./NavItem/NavItem";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-const linksConfig = [
-  { label: "Search", path: "/search" },
-  { label: "About", path: "/about" },
-  { label: "Auth", path: "/auth" },
-];
-
 const StyledNav = styled.nav`
   display: ${({ isDesktop }) => (isDesktop ? "none" : "block")};
   flex-grow: 1;
@@ -31,13 +25,17 @@ const StyledUl = styled.ul`
   }
 `;
 
-const NavItems = ({ isDesktop, closeMenu }) => {
+const NavItems = ({ isDesktop, closeMenu, isAuth }) => {
   return (
     <StyledNav isDesktop={isDesktop}>
       <StyledUl>
-        {linksConfig.map(config => (
-          <NavItem {...config} key={config.label} closeMenu={closeMenu} />
-        ))}
+        <NavItem path="/search" label="Search" closeMenu={closeMenu} />
+        <NavItem path="/about" label="About" closeMenu={closeMenu} />
+        <NavItem
+          path={isAuth ? "/logout" : "/auth"}
+          label={isAuth ? "Logout" : "Auth"}
+          closeMenu={closeMenu}
+        />
       </StyledUl>
     </StyledNav>
   );
@@ -46,6 +44,7 @@ const NavItems = ({ isDesktop, closeMenu }) => {
 NavItems.propTypes = {
   isDesktop: PropTypes.bool,
   closeMenu: PropTypes.func,
+  isAuth: PropTypes.bool.isRequired,
 };
 
 export default NavItems;

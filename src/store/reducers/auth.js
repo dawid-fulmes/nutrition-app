@@ -1,4 +1,9 @@
-import { AUTH_START, AUTH_SUCCESS, AUTH_FAIL } from "../actions/actionTypes";
+import {
+  AUTH_START,
+  AUTH_SUCCESS,
+  AUTH_FAIL,
+  AUTH_LOGOUT,
+} from "../actions/actionTypes";
 
 const initialState = {
   token: null,
@@ -27,6 +32,12 @@ const reducer = (state = initialState, action) => {
         ...state,
         loading: false,
         error: action.error,
+      };
+    case AUTH_LOGOUT:
+      return {
+        ...state,
+        token: null,
+        userId: null,
       };
     default:
       return state;

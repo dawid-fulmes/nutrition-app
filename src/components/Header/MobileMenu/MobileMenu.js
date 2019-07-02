@@ -20,10 +20,10 @@ const StyledMobileMenu = styled.div`
   }
 `;
 
-const MobileMenu = ({ visible, closeMenu }) => {
+const MobileMenu = ({ visible, closeMenu, isAuth }) => {
   return (
     <StyledMobileMenu visible={visible}>
-      <NavItems closeMenu={closeMenu} />
+      <NavItems isAuth={isAuth} closeMenu={closeMenu} />
     </StyledMobileMenu>
   );
 };
@@ -31,6 +31,7 @@ const MobileMenu = ({ visible, closeMenu }) => {
 MobileMenu.propTypes = {
   visible: PropTypes.bool.isRequired,
   closeMenu: PropTypes.func,
+  isAuth: PropTypes.bool.isRequired,
 };
 
 export default MobileMenu;

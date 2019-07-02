@@ -1,4 +1,9 @@
-import { AUTH_START, AUTH_SUCCESS, AUTH_FAIL } from "../actions/actionTypes";
+import {
+  AUTH_START,
+  AUTH_SUCCESS,
+  AUTH_FAIL,
+  AUTH_LOGOUT,
+} from "../actions/actionTypes";
 import axios from "axios";
 
 export const authStart = () => ({
@@ -14,6 +19,10 @@ export const authSuccess = (token, userId) => ({
 export const authFail = error => ({
   type: AUTH_FAIL,
   error,
+});
+
+export const authLogout = () => ({
+  type: AUTH_LOGOUT,
 });
 
 export const auth = (isSignup, email, password) => {

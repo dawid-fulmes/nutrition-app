@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-
+import { Redirect } from "react-router-dom";
 import Input from "../../../components/Input/Input";
 import Button from "../../../components/Button/Button";
 import { auth } from "../../../store/actions/auth";
@@ -26,7 +26,7 @@ const StyledWrapper = styled.div`
     font-size: 1.5rem;
   }
 `;
-const Auth = ({ loading, onAuth, error }) => {
+const Auth = ({ loading, onAuth, error, isAuth }) => {
   const [signupMode, setSignupMode] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -62,7 +62,9 @@ const Auth = ({ loading, onAuth, error }) => {
     errorBox = <ErrorBox>{error.message}</ErrorBox>;
   }
 
-  return (
+  return isAuth ? (
+    <Redirect to="/" />
+  ) : (
     <StyledWrapper>
       {loading ? <Spinner color="white" /> : authForm}
       <Button click={() => setSignupMode(!signupMode)}>
@@ -77,11 +79,13 @@ Auth.propTypes = {
   loading: PropTypes.bool.isRequired,
   onAuth: PropTypes.func.isRequired,
   error: PropTypes.object,
+  isAuth: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
   loading: state.auth.loading,
   error: state.auth.error,
+  isAuth: !!state.auth.token,
 });
 const mapDispatchToProps = dispatch => ({
   onAuth: (isSignup, email, password) =>

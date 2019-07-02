@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+
 import Hamburger from "./Hamburger/Hamburger";
 import MobileMenu from "./MobileMenu/MobileMenu";
 import NavItems from "./NavItems/NavItems";
@@ -27,6 +29,7 @@ class Header extends Component {
   };
   render() {
     const { mobileMenuOn } = this.state;
+    const { isAuth } = this.props;
     const { toggleMobileMenuHandler, closeMobileMenuHandler } = this;
     return (
       <>
@@ -36,12 +39,20 @@ class Header extends Component {
             toggleMobileMenu={toggleMobileMenuHandler}
           />
           <Logo closeMenu={closeMobileMenuHandler} />
-          <NavItems isDesktop />
+          <NavItems isDesktop isAuth={isAuth} />
         </StyledHeader>
-        <MobileMenu visible={mobileMenuOn} closeMenu={closeMobileMenuHandler} />
+        <MobileMenu
+          isAuth={isAuth}
+          visible={mobileMenuOn}
+          closeMenu={closeMobileMenuHandler}
+        />
       </>
     );
   }
 }
+
+Header.propTypes = {
+  isAuth: PropTypes.bool.isRequired,
+};
 
 export default Header;
