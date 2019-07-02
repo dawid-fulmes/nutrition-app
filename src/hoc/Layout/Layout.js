@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import styled, { ThemeProvider } from "styled-components";
 import { connect } from "react-redux";
@@ -23,22 +23,19 @@ const StyledWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
 `;
 
-class Layout extends Component {
-  render() {
-    const { children, isAuth } = this.props;
-    return (
-      <ThemeProvider theme={theme}>
-        <>
-          <GlobalStyle />
-          <StyledWrapper>
-            <Header isAuth={isAuth} />
-            <StyledMain>{children}</StyledMain>
-          </StyledWrapper>
-        </>
-      </ThemeProvider>
-    );
-  }
-}
+const Layout = ({ children, isAuth }) => {
+  return (
+    <ThemeProvider theme={theme}>
+      <>
+        <GlobalStyle />
+        <StyledWrapper>
+          <Header isAuth={isAuth} />
+          <StyledMain>{children}</StyledMain>
+        </StyledWrapper>
+      </>
+    </ThemeProvider>
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.element.isRequired,

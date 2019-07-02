@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -12,40 +12,31 @@ const StyledWrapper = styled.div`
   padding: 20px;
 `;
 
-class Search extends Component {
-  state = {
-    searchInputvalue: "",
-  };
-  changeSearchInputHandler = e => {
-    this.setState({ searchInputvalue: e.target.value });
-  };
-  render() {
-    const {
-      onSearch,
-      onGetDetails,
-      searchResults,
-      loadingResults,
-      lastQuery,
-    } = this.props;
-    const { searchInputvalue } = this.state;
-    const { changeSearchInputHandler } = this;
-    return (
-      <StyledWrapper>
-        <SearchField
-          search={() => onSearch(searchInputvalue)}
-          searchValue={searchInputvalue}
-          searchChange={changeSearchInputHandler}
-        />
-        <SearchResults
-          lastQuery={lastQuery}
-          results={searchResults}
-          loading={loadingResults}
-          getDetails={onGetDetails}
-        />
-      </StyledWrapper>
-    );
-  }
-}
+const Search = ({
+  onSearch,
+  onGetDetails,
+  searchResults,
+  loadingResults,
+  lastQuery,
+}) => {
+  const [searchInputValue, setSearchInputValue] = useState("");
+
+  return (
+    <StyledWrapper>
+      <SearchField
+        search={() => onSearch(searchInputValue)}
+        searchValue={searchInputValue}
+        searchChange={e => setSearchInputValue(e.target.value)}
+      />
+      <SearchResults
+        lastQuery={lastQuery}
+        results={searchResults}
+        loading={loadingResults}
+        getDetails={onGetDetails}
+      />
+    </StyledWrapper>
+  );
+};
 
 Search.propTypes = {
   onSearch: PropTypes.func.isRequired,

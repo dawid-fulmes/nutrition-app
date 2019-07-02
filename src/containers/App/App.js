@@ -9,7 +9,7 @@ import About from "../pages/About/About";
 import Auth from "../pages/Auth/Auth";
 import Logout from "../pages/Logout/Logout";
 
-function App() {
+const App = () => {
   return (
     <Layout>
       <Switch>
@@ -22,6 +22,6 @@ function App() {
       </Switch>
     </Layout>
   );
-}
+};
 
 export default App;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, { Component } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import Hamburger from "./Hamburger/Hamburger";
@@ -17,39 +17,30 @@ const StyledHeader = styled.header`
   z-index: 999;
 `;
 
-class Header extends Component {
-  state = {
-    mobileMenuOn: false,
-  };
-  toggleMobileMenuHandler = () => {
-    this.setState(prevState => ({ mobileMenuOn: !prevState.mobileMenuOn }));
-  };
-  closeMobileMenuHandler = () => {
-    this.setState({ mobileMenuOn: false });
-  };
-  render() {
-    const { mobileMenuOn } = this.state;
-    const { isAuth } = this.props;
-    const { toggleMobileMenuHandler, closeMobileMenuHandler } = this;
-    return (
-      <>
-        <StyledHeader>
-          <Hamburger
-            mobileMenuOn={mobileMenuOn}
-            toggleMobileMenu={toggleMobileMenuHandler}
-          />
-          <Logo closeMenu={closeMobileMenuHandler} />
-          <NavItems isDesktop isAuth={isAuth} />
-        </StyledHeader>
-        <MobileMenu
-          isAuth={isAuth}
-          visible={mobileMenuOn}
-          closeMenu={closeMobileMenuHandler}
+const Header = ({ isAuth }) => {
+  const [mobileMenuOn, setMobilemenuOn] = useState(false);
+
+  const toggleMobileMenuHandler = () => setMobilemenuOn(!mobileMenuOn);
+  const closeMobileMenuHandler = () => setMobilemenuOn(false);
+
+  return (
+    <>
+      <StyledHeader>
+        <Hamburger
+          mobileMenuOn={mobileMenuOn}
+          toggleMobileMenu={toggleMobileMenuHandler}
         />
-      </>
-    );
-  }
-}
+        <Logo closeMenu={closeMobileMenuHandler} />
+        <NavItems isDesktop isAuth={isAuth} />
+      </StyledHeader>
+      <MobileMenu
+        isAuth={isAuth}
+        visible={mobileMenuOn}
+        closeMenu={closeMobileMenuHandler}
+      />
+    </>
+  );
+};
 
 Header.propTypes = {
   isAuth: PropTypes.bool.isRequired,
