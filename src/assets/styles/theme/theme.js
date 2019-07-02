@@ -13,6 +13,7 @@ export const theme = {
     background: "#A9FF6A",
     white: "#FFFFFF",
     black: "#000000",
+    red: "#CC414F",
   },
   media: {
     tablet: `@media (min-width: 768px)`,

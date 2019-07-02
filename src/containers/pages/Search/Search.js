@@ -56,9 +56,9 @@ Search.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  searchResults: state.results,
-  loadingResults: state.loading,
-  lastQuery: state.lastQuery,
+  searchResults: state.search.results,
+  loadingResults: state.search.loading,
+  lastQuery: state.search.lastQuery,
 });
 
 const mapDispatchToProps = dispatch => ({
