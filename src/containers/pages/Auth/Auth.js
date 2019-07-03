@@ -63,7 +63,7 @@ const Auth = ({ loading, onAuth, error, isAuth }) => {
   }
 
   return isAuth ? (
-    <Redirect to="/" />
+    <Redirect to="/user" />
   ) : (
     <StyledWrapper>
       {loading ? <Spinner color="white" /> : authForm}

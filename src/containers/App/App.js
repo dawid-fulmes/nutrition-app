@@ -11,6 +11,7 @@ import About from "../pages/About/About";
 import Auth from "../pages/Auth/Auth";
 import Logout from "../pages/Logout/Logout";
 import { authCheckLocalStorage } from "../../store/actions/auth";
+import User from "../pages/User/User";
 
 const App = ({ onTryToAuth }) => {
   useEffect(() => {
@@ -24,6 +25,7 @@ const App = ({ onTryToAuth }) => {
         <Route path="/about" component={About} />
         <Route path="/auth" component={Auth} />
         <Route path="/logout" component={Logout} />
+        <Route path="/user" component={User} />
         <Route component={Error404} />
       </Switch>
     </Layout>

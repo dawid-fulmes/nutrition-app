@@ -31,6 +31,7 @@ const NavItems = ({ isDesktop, closeMenu, isAuth }) => {
       <StyledUl>
         <NavItem path="/search" label="Search" closeMenu={closeMenu} />
         <NavItem path="/about" label="About" closeMenu={closeMenu} />
+        {isAuth && <NavItem path="/user" label="User" closeMenu={closeMenu} />}
         <NavItem
           path={isAuth ? "/logout" : "/auth"}
           label={isAuth ? "Logout" : "Auth"}
